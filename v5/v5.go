@@ -18,6 +18,7 @@ func GetMovies(OnAirStatus bool, sort string, page uint) ([]Movie, error) {
 	if err != nil {
 		return nil, err
 	}
+	defer resp.Body.Close()
 
 	list := make([]Movie, 40)
 
@@ -40,6 +41,7 @@ func GetMoviesByChannelID(chanID string) ([]Movie, error) {
 	if err != nil {
 		return nil, err
 	}
+	defer resp.Body.Close()
 
 	list := make([]Movie, 40)
 
